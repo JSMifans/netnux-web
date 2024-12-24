@@ -17,18 +17,16 @@
                         <el-input
                             v-model="registerForm.phone"
                             placeholder="请输入手机号"
-                            :prefix-icon="Phone"
                             autocomplete="off"
                         />
                     </el-form-item>
 
-                    <el-form-item prop="password">
+                    <el-form-item prop="passwordHash">
                         <el-input
-                            v-model="registerForm.password"
+                            v-model="registerForm.passwordHash"
                             type="password"
                             placeholder="请输入密码"
                             show-password
-                            :prefix-icon="Lock"
                             autocomplete="off"
                             :input-style="{ 'background-color': 'transparent' }"
                         />
@@ -40,7 +38,6 @@
                             type="password"
                             placeholder="请再次输入密码"
                             show-password
-                            :prefix-icon="Lock"
                             autocomplete="off"
                             :input-style="{ 'background-color': 'transparent' }"
                         />
@@ -50,7 +47,6 @@
                         <el-input
                             v-model="registerForm.nickname"
                             placeholder="请输入昵称"
-                            :prefix-icon="User"
                             autocomplete="off"
                         />
                     </el-form-item>
@@ -80,7 +76,6 @@
 import { ref, reactive } from 'vue'
 import { ElMessage } from 'element-plus'
 import { register } from '@/api/user'
-import { User, Lock, Phone } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -88,10 +83,10 @@ const formRef = ref(null)
 const loading = ref(false)
 
 const registerForm = reactive({
-    phone: '',
-    password: '',
-    confirmPassword: '',
-    nickname: '',
+    phone: '18112923932',
+    passwordHash: '120130',
+    confirmPassword: '120130',
+    nickname: '胡胡',
     roleId: 1, // 默认角色ID
     status: 1, // 默认激活状态
 })
@@ -99,7 +94,7 @@ const registerForm = reactive({
 const validatePass2 = (rule, value, callback) => {
     if (value === '') {
         callback(new Error('请再次输入密码'))
-    } else if (value !== registerForm.password) {
+    } else if (value !== registerForm.passwordHash) {
         callback(new Error('两次输入密码不一致!'))
     } else {
         callback()
@@ -115,7 +110,7 @@ const rules = {
             trigger: 'blur',
         },
     ],
-    password: [
+    passwordHash: [
         { required: true, message: '请输入密码', trigger: 'blur' },
         { min: 6, message: '密码长度不能小于6位', trigger: 'blur' },
     ],
@@ -142,7 +137,7 @@ const handleSubmit = async () => {
                 // 构造注册数据，移除确认密码字段
                 const registerData = {
                     phone: registerForm.phone,
-                    password: registerForm.password,
+                    passwordHash: registerForm.passwordHash,
                     nickname: registerForm.nickname,
                     roleId: registerForm.roleId,
                     status: registerForm.status,

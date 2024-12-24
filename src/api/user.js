@@ -16,3 +16,10 @@ export function login(data) {
         data,
     })
 }
+
+export function getUserInfo() {
+    return request({
+        url: '/ums-users/userInfo',
+        method: 'get',
+    })
+}
