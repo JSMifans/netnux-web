@@ -1,0 +1,155 @@
+// 布局相关
+.page-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-start {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.flex-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+// 表格相关
+.table-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    height: calc(100vh - 240px);
+
+    .table-content {
+        flex: 1;
+        height: 100%;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .table-edit {
+        width: 500px;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 20px;
+        .edit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    .edit-content {
+        padding-top: 20px;
+    }
+    .const-table {
+        height: calc(100vh - 380px);
+    }
+    .table-footer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 70px;
+        margin-right: 20px;
+    }
+}
+
+// 表格美化
+.table-style {
+    // 表格外层容器
+    .table-wrapper {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+    // 表头样式
+    .ivu-table th {
+        background-color: #f8f9fb !important;
+        color: #333;
+        font-weight: 500;
+        height: 48px;
+
+        // 表头文字
+        .ivu-table-cell {
+            padding: 0 16px;
+        }
+    }
+
+    // 表格内容
+    .ivu-table {
+        &::before {
+            display: none; // 移除顶部边框
+        }
+
+        // 表格行
+        td {
+            height: 48px;
+            color: #666;
+        }
+
+        // 斑马纹
+        .ivu-table-row:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        // 鼠标悬停效果
+        tr:hover td {
+            background-color: #f0f7ff !important;
+        }
+
+        // 表格单元格
+        .ivu-table-cell {
+            padding: 8px 16px;
+        }
+
+        // 操作按钮列
+        .action-column {
+            .flex-start();
+            gap: 8px;
+
+            .ivu-btn {
+                padding: 0 4px;
+            }
+        }
+    }
+
+    // 分页样式
+    .ivu-page {
+        margin-top: 16px;
+        .flex-end();
+    }
+}
+
+//
+.main-wrapper {
+    background-color: #f8f8f9;
+    height: calc(100vh - 120px);
+    padding: 20px;
+}

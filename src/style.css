@@ -77,3 +77,22 @@ body {
     align-items: center;
     /* border: 1px solid red; */
 }
+
+.table-edit {
+    width: 500px;
+    height: 100%;
+    background-color: #fff;
+    height: calc(100vh - 240px);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.table-edit .menu-wrapper {
+    padding: 20px;
+}
+.table-edit .edit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
